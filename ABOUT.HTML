@@ -20,7 +20,8 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; -webkit-tap-highlight-color: transparent; }
+    :focus { outline: none; box-shadow: none; }
     .container { width: min(1150px, 92%); margin: 0 auto; }
 
     .top-band {
@@ -146,11 +147,57 @@
     .value-card p { color: #496257; font-size: 0.95rem; }
 
     footer {
-      background: #002f1f;
+      background: #00301f;
       color: #fff;
+      padding: 70px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 1.1fr;
+      gap: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-brand {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ddf8e9;
+      margin-bottom: 8px;
+    }
+
+    .footer-sub {
+      color: #9ad2b5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .footer-grid h4 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .footer-contact p {
+      margin: 10px 0;
+    }
+
+    .copy {
       text-align: center;
-      padding: 18px;
-      font-size: 0.9rem;
+      padding-top: 18px;
+      color: #c4e5d4;
+      font-weight: 500;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 960px) {
@@ -161,6 +208,7 @@
     @media (max-width: 780px) {
       .nav-wrap { flex-direction: column; align-items: flex-start; padding: 14px 0; }
       nav { gap: 12px; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -228,6 +276,28 @@
     </div>
   </section>
 
-  <footer>© 2026 Sandhu Tax Advisors | All Rights Reserved</footer>
+    <footer>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">Sandhu Tax Advisors</p>
+        <p class="footer-sub">Legal & Professional Services</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="SERVICES.HTML">Services</a>
+        <a href="ABOUT.HTML">About Us</a>
+        <a href="CONTACT.HTML">Contact Us</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact us</h4>
+        <p><a href="https://www.google.com/maps/search/?api=1&query=Street+No.+26,+near+by+Gupta+Tent,+Jujhar+Nagar,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055" target="_blank" rel="noopener noreferrer">👤 📍 Street No. 26, near by Gupta Tent, Jujhar Nagar, Sahibzada Ajit Singh Nagar, Punjab 160055</a></p>
+        <a href="tel:9646612177">📞 96466 12177</a>
+        <a href="tel:8054535152">📞 80545 35152</a>
+        <a href="mailto:harnehakaur@gmail.com">✉ harnehakaur@gmail.com</a>
+      </div>
+    </div>
+    <div class="container copy">© 2026 Sandhu Tax Advisors | All Rights Reserved</div>
+  </footer>
 </body>
 </html>
