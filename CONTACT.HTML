@@ -329,7 +329,7 @@
       <article class="card">
         <h2>Send us your query</h2>
         <p id="submit-success" class="submit-success">✅ Thanks! Your query was submitted successfully. We have brought you back to our Contact page.</p>
-        <form action="https://formsubmit.co/harnehakaur@gmail.com" method="POST">
+        <form id="contact-form" action="https://formsubmit.co/harnehakaur@gmail.com" method="POST" target="submission-frame">
           <input type="hidden" name="_subject" value="New consultation request - Sandhu Tax Advisors">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -353,6 +353,7 @@
           <button type="submit" class="btn">Submit Query</button>
           <p class="contact-note">After first submission, please confirm the activation email from FormSubmit to start receiving consultation requests in your inbox.</p>
         </form>
+        <iframe name="submission-frame" title="Form submission target" style="display:none;"></iframe>
       </article>
     </div>
   </section>
@@ -398,9 +399,22 @@
 
     const params = new URLSearchParams(window.location.search);
     const successNote = document.querySelector('#submit-success');
+    const contactForm = document.querySelector('#contact-form');
+
     if (params.get('submitted') === 'true' && successNote) {
       successNote.classList.add('show');
       successNote.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    if (contactForm && successNote) {
+      contactForm.addEventListener('submit', () => {
+        setTimeout(() => {
+          successNote.classList.add('show');
+          successNote.textContent = '✅ Thanks! Your query was submitted successfully. We will contact you shortly.';
+          successNote.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          contactForm.reset();
+        }, 600);
+      });
     }
   </script>
 </body>
