@@ -48,16 +48,6 @@
       margin: 0 auto;
     }
 
-    .top-band {
-      background: linear-gradient(120deg, #0f4ba8, #0c2f73);
-      color: #dce9ff;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 10px;
-      letter-spacing: 0.2px;
-    }
-
     header {
       background: #fff;
       border-bottom: 1px solid #d7e5dd;
@@ -76,25 +66,52 @@
 
     .logo {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
     }
 
-    .logo strong {
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .logo-text strong {
+      display: block;
       color: var(--brand-blue);
       font-size: clamp(1rem, 2.1vw, 1.5rem);
       letter-spacing: 0.5px;
+      line-height: 1.1;
     }
 
-    .logo span {
+    .logo-text span {
       color: var(--brand-green);
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.4px;
     }
 
-    nav {
+    .nav-toggle {
+      display: none;
+      border: 1px solid #cfe2d7;
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #123528;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .main-nav {
       display: flex;
       align-items: center;
       gap: 24px;
@@ -102,7 +119,7 @@
       justify-content: flex-end;
     }
 
-    nav a {
+    .main-nav a {
       text-decoration: none;
       color: #123528;
       font-weight: 600;
@@ -385,17 +402,6 @@
     }
 
     @media (max-width: 760px) {
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 0;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 14px;
-      }
 
       .hero-wrap,
       .service-grid,
@@ -412,19 +418,60 @@
       .stat::after {
         display: none;
       }
+
+      .nav-wrap {
+        min-height: 72px;
+        align-items: center;
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+      }
+
+      .logo-text span {
+        font-size: 0.68rem;
+        letter-spacing: 1.1px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: 10px;
+        border-top: 1px solid #d7e5dd;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a {
+        width: 100%;
+      }
+
     }
   </style>
 </head>
 <body>
-  <div class="top-band">Legal & Professional Services • Accurate • Affordable • Timely Service</div>
-
   <header>
     <div class="container nav-wrap">
-      <div class="logo">
-        <strong>SANDHU TAX ADVISORS</strong>
-        <span>Legal & Professional Services</span>
-      </div>
-      <nav>
+      <a class="logo" href="index.html" aria-label="Sandhu Tax Advisors home">
+        <img class="logo-mark" src="assets/logo-mark.svg" alt="Sandhu Tax Advisors logo">
+        <span class="logo-text">
+          <strong>SANDHU TAX ADVISORS</strong>
+          <span>Legal & Professional Services</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="main-nav">
         <a href="index.html">Home</a>
         <a href="SERVICES.HTML">Services</a>
         <a href="ABOUT.HTML">About Us</a>
@@ -523,5 +570,21 @@
     </div>
     <div class="container copy">© 2026 Sandhu Tax Advisors | All Rights Reserved</div>
   </footer>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const primaryNav = document.querySelector('#primary-nav');
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener('click', () => {
+        primaryNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', primaryNav.classList.contains('open'));
+      });
+      primaryNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          primaryNav.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>

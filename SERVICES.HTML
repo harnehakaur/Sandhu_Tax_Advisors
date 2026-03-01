@@ -24,15 +24,6 @@
     :focus { outline: none; box-shadow: none; }
     .container { width: min(1180px, 92%); margin: 0 auto; }
 
-    .top-band {
-      background: linear-gradient(120deg, #0d4aac, #092c70);
-      color: #dbe8ff;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 10px;
-    }
-
     header { background: #fff; border-bottom: 1px solid var(--stroke); position: sticky; top: 0; z-index: 30; }
 
     .nav-wrap {
@@ -43,18 +34,45 @@
       gap: 20px;
     }
 
-    .logo strong { display: block; color: var(--brand-blue); font-size: clamp(1rem, 1.8vw, 1.4rem); }
-    .logo span {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
+
+    .logo-text strong { display: block; color: var(--brand-blue); font-size: clamp(1rem, 1.8vw, 1.4rem); line-height: 1.1; }
+    .logo-text span {
       color: var(--brand-green);
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
     }
 
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: #19382c; font-weight: 600; font-size: 0.95rem; }
-    nav a.active { color: var(--brand-green-dark); border-bottom: 2px solid var(--brand-green); padding-bottom: 3px; }
+    .nav-toggle {
+      display: none;
+      border: 1px solid #cfe2d7;
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #19382c;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .main-nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .main-nav a { text-decoration: none; color: #19382c; font-weight: 600; font-size: 0.95rem; }
+    .main-nav a.active { color: var(--brand-green-dark); border-bottom: 2px solid var(--brand-green); padding-bottom: 3px; }
 
     .hero {
       padding: 70px 0 38px;
@@ -68,32 +86,53 @@
     }
 
     .hero p { color: #2d4b40; max-width: 760px; }
-
     .service-area { padding: 46px 0 70px; }
+
+    .service-intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .pill {
+      background: #e7f4ec;
+      border: 1px solid #cae2d4;
+      color: #1f4738;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 600;
+      font-size: 0.84rem;
+    }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
 
     .service-card {
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fcfa 100%);
+      border: 1px solid #d8e9df;
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(3, 100, 63, 0.08);
       padding: 24px;
     }
 
     .service-card h2 {
       color: #0d3d2d;
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      border-left: 4px solid var(--brand-green);
-      padding-left: 10px;
+      font-size: 1.24rem;
+      margin-bottom: 10px;
+      line-height: 1.25;
     }
 
-    .service-card ul { list-style: none; display: grid; gap: 9px; }
+    .service-card p {
+      color: #355247;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card ul { list-style: none; display: grid; gap: 8px; }
     .service-card li { color: var(--muted); }
     .service-card li::before {
       content: '✔';
@@ -104,13 +143,14 @@
 
     .note {
       margin-top: 24px;
-      background: #e8f5ed;
-      border: 1px solid #cfe6d8;
-      border-radius: 12px;
+      background: #0f3f2e;
+      border-radius: 14px;
       padding: 16px;
-      color: #25453a;
+      color: #ecfff4;
       font-weight: 600;
     }
+
+    .note a { color: #9ef5c6; }
 
     footer {
       background: #00301f;
@@ -169,22 +209,38 @@
     @media (max-width: 960px) { .service-grid { grid-template-columns: 1fr; } }
 
     @media (max-width: 780px) {
-      .nav-wrap { flex-direction: column; align-items: flex-start; padding: 14px 0; }
-      nav { gap: 12px; }
+      .nav-wrap { min-height: 72px; padding: 12px 0; }
+      .logo-mark { width: 40px; height: 40px; }
+      .logo-text span { font-size: 0.68rem; letter-spacing: 1px; }
+      .nav-toggle { display: block; }
+      .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: 10px;
+        border-top: 1px solid var(--stroke);
+        flex-direction: column;
+        gap: 12px;
+      }
+      .main-nav.open { display: flex; }
+      .main-nav a { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="top-band">Legal & Professional Services • Accurate • Affordable • Timely Service</div>
-
   <header>
     <div class="container nav-wrap">
-      <div class="logo">
-        <strong>SANDHU TAX ADVISORS</strong>
-        <span>Legal & Professional Services</span>
-      </div>
-      <nav>
+      <a class="logo" href="index.html" aria-label="Sandhu Tax Advisors home">
+        <img class="logo-mark" src="assets/logo-mark.svg" alt="Sandhu Tax Advisors logo">
+        <span class="logo-text">
+          <strong>SANDHU TAX ADVISORS</strong>
+          <span>Legal & Professional Services</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="main-nav">
         <a href="index.html">Home</a>
         <a href="SERVICES.HTML" class="active">Services</a>
         <a href="ABOUT.HTML">About Us</a>
@@ -200,58 +256,88 @@
     </div>
   </section>
 
-  <section class="service-area">
-    <div class="container service-grid">
-      <article class="service-card">
-        <h2>Taxation Services</h2>
-        <ul>
-          <li>Income Tax Return (ITR) Filing</li>
-          <li>GST Registration & GST Returns</li>
-          <li>TDS Return Filing</li>
-          <li>Tax Planning & Advisory</li>
-          <li>Form 15CA / 15CB Compliance</li>
-          <li>Handling Tax Notices & Follow-ups</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <h2>Business Registrations & Legal Compliance</h2>
-        <ul>
-          <li>Private Limited, LLP & OPC Registration</li>
-          <li>Partnership Firm Registration</li>
-          <li>MSME (Udyam) Registration</li>
-          <li>FSSAI, IEC and Shop Act Registration</li>
-          <li>PF & ESIC Registration</li>
-          <li>ROC Annual Compliance</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <h2>Accounting & Reporting</h2>
-        <ul>
-          <li>Day-to-Day Bookkeeping</li>
-          <li>Balance Sheet & Financial Statement Preparation</li>
-          <li>MIS Reporting & Cash Flow Monitoring</li>
-          <li>Payroll and Basic Compliance Support</li>
-          <li>Vendor / Client Reconciliation</li>
-          <li>Year-End Closing Assistance</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <h2>Audit & Certification Support</h2>
-        <ul>
-          <li>Tax Audit Assistance</li>
-          <li>Stock and Internal Audit Support</li>
-          <li>Statutory Audit Preparation</li>
-          <li>Net Worth / Income / Turnover Certificates</li>
-          <li>Financial Data Review for Loans</li>
-          <li>Compliance Documentation Readiness</li>
-        </ul>
-      </article>
-    </div>
-
+    <section class="service-area">
     <div class="container">
+      <div class="service-intro">
+        <span class="pill">Easy to choose</span>
+        <span class="pill">Grouped by your need</span>
+        <span class="pill">Mobile-friendly pricing discussion</span>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <h2>GST Services</h2>
+          <p>Everything related to GST in one place for shop owners, traders, and companies.</p>
+          <ul>
+            <li>GST Registration (new / amendment / cancellation)</li>
+            <li>Monthly & Quarterly GST Returns</li>
+            <li>Annual Return & Reconciliation</li>
+            <li>GST Notice Reply & Follow-up</li>
+            <li>E-way bill and invoice compliance support</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <h2>Income Tax & TDS</h2>
+          <p>Personal and business tax filing with planning support.</p>
+          <ul>
+            <li>ITR Filing (individual, business, professional)</li>
+            <li>TDS Return Filing & corrections</li>
+            <li>Tax Planning & Advance Tax guidance</li>
+            <li>Form 15CA / 15CB compliance</li>
+            <li>Income tax notice handling</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <h2>Business Setup & Registrations</h2>
+          <p>Start and formalize your business with the right registrations.</p>
+          <ul>
+            <li>Private Limited, LLP & OPC registration</li>
+            <li>Partnership firm registration</li>
+            <li>MSME (Udyam), IEC, FSSAI, Shop Act</li>
+            <li>PF & ESIC registration support</li>
+            <li>ROC annual compliance</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <h2>Accounting & Payroll</h2>
+          <p>Clean books and practical reporting for confident decisions.</p>
+          <ul>
+            <li>Day-to-day bookkeeping</li>
+            <li>Balance Sheet & financial statements</li>
+            <li>MIS reports and cash flow tracking</li>
+            <li>Payroll processing & basic compliance</li>
+            <li>Vendor / client reconciliation</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <h2>Audit & Certificates</h2>
+          <p>Support for audit preparation and official financial certificates.</p>
+          <ul>
+            <li>Tax audit assistance</li>
+            <li>Internal / stock audit support</li>
+            <li>Statutory audit preparation</li>
+            <li>Net worth / income / turnover certificates</li>
+            <li>Loan documentation and data review</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <h2>Notices & Compliance Rescue</h2>
+          <p>Fast support when you receive urgent government notices.</p>
+          <ul>
+            <li>GST and income tax notice reply drafting</li>
+            <li>Department follow-up and clarification support</li>
+            <li>Late filing and penalty minimization guidance</li>
+            <li>Compliance calendar setup to avoid misses</li>
+            <li>Priority handling for deadline-sensitive matters</li>
+          </ul>
+        </article>
+      </div>
+
       <p class="note">Need a custom service package? Call us at <a href="tel:9646612177">96466 12177</a> or email <a href="mailto:harnehakaur@gmail.com">harnehakaur@gmail.com</a> for a tailored consultation.</p>
     </div>
   </section>
@@ -279,5 +365,21 @@
     </div>
     <div class="container copy">© 2026 Sandhu Tax Advisors | All Rights Reserved</div>
   </footer>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const primaryNav = document.querySelector('#primary-nav');
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener('click', () => {
+        primaryNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', primaryNav.classList.contains('open'));
+      });
+      primaryNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          primaryNav.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
