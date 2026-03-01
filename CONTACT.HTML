@@ -243,24 +243,28 @@
 
       <article class="card">
         <h2>Send us your query</h2>
-        <form>
+        <form action="https://formsubmit.co/harnehakaur@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New consultation request - Sandhu Tax Advisors">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div>
             <label for="name">Your Name</label>
-            <input id="name" type="text" placeholder="Enter your full name" required>
+            <input id="name" name="name" type="text" placeholder="Enter your full name" required>
           </div>
           <div>
             <label for="email">Email Address</label>
-            <input id="email" type="email" placeholder="name@example.com" required>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
           </div>
           <div>
             <label for="phone">Phone Number</label>
-            <input id="phone" type="tel" placeholder="Enter your contact number">
+            <input id="phone" name="phone" type="tel" placeholder="Enter your contact number" required>
           </div>
           <div>
             <label for="message">How can we help?</label>
-            <textarea id="message" placeholder="Tell us your requirement"></textarea>
+            <textarea id="message" name="message" placeholder="Tell us your requirement" required></textarea>
           </div>
           <button type="submit" class="btn">Submit Query</button>
+          <p class="contact-note">After first submission, please confirm the activation email from FormSubmit to start receiving consultation requests in your inbox.</p>
         </form>
       </article>
     </div>
