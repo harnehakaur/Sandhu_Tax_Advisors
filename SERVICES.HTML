@@ -105,6 +105,53 @@
       font-size: 0.84rem;
     }
 
+
+    .service-tools {
+      background: #ffffff;
+      border: 1px solid #d8e9df;
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(3, 100, 63, 0.08);
+    }
+
+    .search-box {
+      width: 100%;
+      border: 1px solid #bfd8ca;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      color: #1b3b2f;
+      margin-bottom: 12px;
+    }
+
+    .search-box::placeholder {
+      color: #668377;
+    }
+
+    .major-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .major-filter {
+      border: 1px solid #c8dfd2;
+      background: #f4fbf7;
+      color: #1f4738;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .major-filter.active {
+      background: #03643f;
+      color: #fff;
+      border-color: #03643f;
+    }
+
     .service-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -209,12 +256,13 @@
     @media (max-width: 960px) { .service-grid { grid-template-columns: 1fr; } }
 
     @media (max-width: 780px) {
-      .nav-wrap { min-height: 72px; padding: 12px 0; }
+      .nav-wrap { min-height: 72px; padding: 12px 0; flex-wrap: wrap; }
       .logo-mark { width: 40px; height: 40px; }
       .logo-text span { font-size: 0.68rem; letter-spacing: 1px; }
       .nav-toggle { display: block; }
       .main-nav {
         display: none;
+        order: 3;
         width: 100%;
         padding-top: 10px;
         border-top: 1px solid var(--stroke);
@@ -264,8 +312,21 @@
         <span class="pill">Mobile-friendly pricing discussion</span>
       </div>
 
+      <div class="service-tools">
+        <input id="service-search" class="search-box" type="search" placeholder="Search major service or sub-service (e.g. GST, ITR, Payroll)">
+        <div class="major-filters" id="major-filters">
+          <button class="major-filter active" type="button" data-filter="all">All</button>
+          <button class="major-filter" type="button" data-filter="GST Services">GST</button>
+          <button class="major-filter" type="button" data-filter="Income Tax & TDS">Income Tax</button>
+          <button class="major-filter" type="button" data-filter="Business Setup & Registrations">Business Setup</button>
+          <button class="major-filter" type="button" data-filter="Accounting & Payroll">Accounting</button>
+          <button class="major-filter" type="button" data-filter="Audit & Certificates">Audit</button>
+          <button class="major-filter" type="button" data-filter="Notices & Compliance Rescue">Notice Help</button>
+        </div>
+      </div>
+
       <div class="service-grid">
-        <article class="service-card">
+        <article class="service-card" data-title="gst services">
           <h2>GST Services</h2>
           <p>Everything related to GST in one place for shop owners, traders, and companies.</p>
           <ul>
@@ -277,7 +338,7 @@
           </ul>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-title="income tax & tds">
           <h2>Income Tax & TDS</h2>
           <p>Personal and business tax filing with planning support.</p>
           <ul>
@@ -289,7 +350,7 @@
           </ul>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-title="business setup & registrations">
           <h2>Business Setup & Registrations</h2>
           <p>Start and formalize your business with the right registrations.</p>
           <ul>
@@ -301,7 +362,7 @@
           </ul>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-title="accounting & payroll">
           <h2>Accounting & Payroll</h2>
           <p>Clean books and practical reporting for confident decisions.</p>
           <ul>
@@ -313,7 +374,7 @@
           </ul>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-title="audit & certificates">
           <h2>Audit & Certificates</h2>
           <p>Support for audit preparation and official financial certificates.</p>
           <ul>
@@ -325,7 +386,7 @@
           </ul>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-title="notices & compliance rescue">
           <h2>Notices & Compliance Rescue</h2>
           <p>Fast support when you receive urgent government notices.</p>
           <ul>
@@ -380,6 +441,36 @@
         });
       });
     }
+
+    const searchInput = document.querySelector('#service-search');
+    const filterButtons = document.querySelectorAll('.major-filter');
+    const serviceCards = document.querySelectorAll('.service-card');
+    let activeFilter = 'all';
+
+    const applyServiceFilter = () => {
+      const query = (searchInput?.value || '').trim().toLowerCase();
+      serviceCards.forEach((card) => {
+        const major = card.querySelector('h2')?.textContent?.toLowerCase() || '';
+        const subList = card.textContent.toLowerCase();
+        const matchFilter = activeFilter === 'all' || major.includes(activeFilter);
+        const matchQuery = !query || subList.includes(query);
+        card.style.display = matchFilter && matchQuery ? '' : 'none';
+      });
+    };
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = (btn.dataset.filter || 'all').toLowerCase();
+        applyServiceFilter();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyServiceFilter);
+    }
+
   </script>
 </body>
 </html>
