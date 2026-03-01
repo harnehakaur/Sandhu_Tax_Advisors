@@ -1,199 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandhu Tax Advisors</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandhu Tax Advisors | Legal & Professional Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-green: #03643f;
+      --brand-green-dark: #014a2e;
+      --brand-green-soft: #e7f2eb;
+      --brand-blue: #0c3f92;
+      --brand-yellow: #f2c84b;
+      --text-dark: #13201b;
+      --text-light: #fff;
+      --bg-light: #f1f8f4;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 30px rgba(3, 100, 63, 0.08);
+      --radius: 16px;
+    }
 
-<style>
-body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:#f4f7fb;
-color:#222;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-header{
-background:#0b3d91;
-color:white;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.logo{
-font-size:22px;
-font-weight:700;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.5;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
-}
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
 
-.btn{
-background:#f4b400;
-color:#000;
-padding:10px 20px;
-border-radius:25px;
-text-decoration:none;
-font-weight:600;
-}
+    .top-band {
+      background: linear-gradient(120deg, #0f4ba8, #0c2f73);
+      color: #dce9ff;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px;
+      letter-spacing: 0.2px;
+    }
 
-.hero{
-background:linear-gradient(135deg,#0b3d91,#114fb3);
-color:white;
-padding:80px 8%;
-text-align:center;
-}
+    header {
+      background: #fff;
+      border-bottom: 1px solid #d7e5dd;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
-.hero h1{
-font-size:42px;
-margin-bottom:15px;
-}
+    .nav-wrap {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.hero p{
-font-size:18px;
-margin-bottom:25px;
-}
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.tagline{
-font-style:italic;
-margin-top:15px;
-}
+    .logo strong {
+      color: var(--brand-blue);
+      font-size: clamp(1rem, 2.1vw, 1.5rem);
+      letter-spacing: 0.5px;
+    }
 
-.services-preview{
-padding:70px 8%;
-text-align:center;
-}
+    .logo span {
+      color: var(--brand-green);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
 
-.services-preview h2{
-color:#0b3d91;
-margin-bottom:40px;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+    nav a {
+      text-decoration: none;
+      color: #123528;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
 
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      border: none;
+    }
 
-.card h3{
-color:#0b3d91;
-margin-bottom:10px;
-}
+    .btn-primary {
+      background: var(--brand-green);
+      color: #fff;
+      padding: 12px 22px;
+      box-shadow: 0 8px 20px rgba(3, 100, 63, 0.2);
+    }
 
-.contact-strip{
-background:#f4b400;
-padding:25px;
-text-align:center;
-font-weight:600;
-}
+    .btn-primary:hover {
+      background: var(--brand-green-dark);
+      transform: translateY(-1px);
+    }
 
-footer{
-background:#0b3d91;
-color:white;
-padding:40px 8%;
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-}
+    .hero {
+      padding: 72px 0 36px;
+      background:
+        linear-gradient(115deg, #eaf6ee 0%, #eaf6ee 60%, #d9ebdf 60%, #d9ebdf 100%);
+    }
 
-footer a{
-color:white;
-text-decoration:none;
-display:block;
-margin-bottom:8px;
-}
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-.copy{
-background:#072b66;
-color:white;
-text-align:center;
-padding:10px;
-}
-</style>
+    .eyebrow {
+      color: var(--brand-blue);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3.3rem);
+      color: var(--brand-green-dark);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 650px;
+    }
+
+    .hero .tagline {
+      color: var(--brand-blue);
+      font-style: italic;
+      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #233a31;
+      font-size: 1.03rem;
+      margin-bottom: 26px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
+      margin-top: 18px;
+      font-weight: 600;
+      color: #11392b;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #d6e8dd;
+    }
+
+    .hero-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--brand-green-dark);
+    }
+
+    .checklist {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .checklist li {
+      font-weight: 500;
+      color: #223a31;
+    }
+
+    .checklist li::before {
+      content: '✔';
+      color: #0a9a56;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    .owner {
+      margin-top: 6px;
+      font-weight: 700;
+      color: var(--brand-blue);
+    }
+
+    .stats {
+      margin-top: 32px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #d6e8dd;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 22px 12px;
+      position: relative;
+    }
+
+    .stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      width: 1px;
+      height: 60%;
+      background: #bfd8ca;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--brand-green-dark);
+      font-size: clamp(1.45rem, 3.2vw, 2rem);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .services {
+      margin-top: 56px;
+      padding: 70px 0;
+      background: var(--brand-green-dark);
+      border-top-left-radius: 64px;
+      border-top-right-radius: 64px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      margin-bottom: 34px;
+      font-weight: 800;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #f7fbf8;
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 205px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .service-card h3 {
+      color: #0c2f22;
+      font-size: 1.32rem;
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      color: #344940;
+      font-size: 0.95rem;
+    }
+
+    .about-intro {
+      padding: 68px 0;
+      background: #fff;
+    }
+
+    .about-intro p {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: clamp(1.25rem, 2.6vw, 2.1rem);
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #0a4732;
+    }
+
+    footer {
+      background: #00301f;
+      color: #fff;
+      padding: 70px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 1.1fr;
+      gap: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-brand {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ddf8e9;
+      margin-bottom: 8px;
+    }
+
+    .footer-sub {
+      color: #9ad2b5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .footer-grid h4 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .footer-contact p {
+      margin: 10px 0;
+    }
+
+    .copy {
+      text-align: center;
+      padding-top: 18px;
+      color: #c4e5d4;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 14px;
+      }
+
+      .hero-wrap,
+      .service-grid,
+      .footer-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        border-top-left-radius: 36px;
+        border-top-right-radius: 36px;
+      }
+
+      .stat::after {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="top-band">Legal & Professional Services • Accurate • Affordable • Timely Service</div>
 
-<header>
-<div class="logo">Sandhu Tax Advisors</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="tel:9646612177" class="btn">Call Now</a>
-</nav>
-</header>
+  <header>
+    <div class="container nav-wrap">
+      <div class="logo">
+        <strong>SANDHU TAX ADVISORS</strong>
+        <span>Legal & Professional Services</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="SERVICES.HTML">Services</a>
+        <a href="ABOUT.HTML">About Us</a>
+        <a href="CONTACT.HTML" class="btn btn-primary">Contact Us</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="hero">
-<h1>SANDHU TAX ADVISORS</h1>
-<p>Legal & Professional Consultant</p>
-<p class="tagline">Har tarah ke Tax aur Compliance ka ek hi solution!</p>
-<a href="mailto:harnehakaur@gmail.com" class="btn">Book Consultation</a>
-</section>
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <p class="eyebrow">Sandhu Tax Advisors</p>
+        <h1>Har tarah ke Tax aur Compliance ka ek hi solution!</h1>
+        <p class="tagline">Trusted Experts in Taxation & Financial Advisory</p>
+        <p>We help individuals, traders, startups, and companies with end-to-end taxation, registration, and compliance services so you can focus on business growth.</p>
+        <a href="CONTACT.HTML" class="btn btn-primary">Book a consultation</a>
+        <div class="contact-line">
+          <span>📞 Call / WhatsApp: <a href="tel:9646612177">96466 12177</a></span>
+          <span>📧 <a href="mailto:harnehakaur@gmail.com">harnehakaur@gmail.com</a></span>
+        </div>
+      </div>
 
-<section class="services-preview">
-<h2>Our Key Services</h2>
+      <aside class="hero-card">
+        <h3>Popular Services</h3>
+        <ul class="checklist">
+          <li>GST Registration & Return Filing</li>
+          <li>Income Tax Return (ITR Filing)</li>
+          <li>Accounting & Balance Sheet</li>
+          <li>Company / LLP / OPC ROC Compliances</li>
+          <li>MSME (Udyam) Registration</li>
+          <li>IEC Code, FSSAI & Trade Certificates</li>
+        </ul>
+        <p class="owner">Proprietor: Harmeet Kaur Sandhu</p>
+      </aside>
+    </div>
 
-<div class="grid">
+    <div class="container stats">
+      <div class="stat"><strong>13+</strong><span>Years Services</span></div>
+      <div class="stat"><strong>5,000+</strong><span>Clients Served</span></div>
+      <div class="stat"><strong>30+</strong><span>Professional Network</span></div>
+      <div class="stat"><strong>25+</strong><span>Business Verticals</span></div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>GST Services</h3>
-<p>GST Registration, GST Returns & Compliance Management</p>
-</div>
+  <section class="about-intro">
+    <div class="container">
+      <p>At Sandhu Tax Advisors, we combine experience, practical guidance, and responsive support to deliver reliable GST, Income Tax, Company Registration, and Compliance services tailored to your needs.</p>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Income Tax & TDS</h3>
-<p>Income Tax Returns, TDS Filing, Form 15CA & 15CB</p>
-</div>
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Incorporation, Registrations & Licenses</h3>
+          <p>Pvt Ltd, LLP, One Person Company, FSSAI, MSME, IEC, trade licenses and startup registrations.</p>
+        </article>
+        <article class="service-card">
+          <h3>Goods & Services Tax (GST)</h3>
+          <p>GST registration, monthly/quarterly returns, annual returns, notices handling, and compliance support.</p>
+        </article>
+        <article class="service-card">
+          <h3>Income Tax & TDS Services</h3>
+          <p>ITR filing for salaried/business clients, TDS returns, tax planning, and income tax notices assistance.</p>
+        </article>
+        <article class="service-card">
+          <h3>Accounting, Audit & MIS</h3>
+          <p>Bookkeeping, balance sheet preparation, audit coordination, and practical business reporting for growth.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Company Registration</h3>
-<p>Pvt Ltd, NGO, LLP & Section 80G / 12AA Registration</p>
-</div>
-
-<div class="card">
-<h3>Accounting & Audits</h3>
-<p>Tax Audit, Stock Audit, Statutory Audit & Financial Statements</p>
-</div>
-
-</div>
-</section>
-
-<section class="contact-strip">
-📞 Call / WhatsApp: 9646612177 | 8054535152  
-📧 harnehakaur@gmail.com
-</section>
-
-<footer>
-<div>
-<h3>Quick Links</h3>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-</div>
-
-<div>
-<h3>Contact</h3>
-<p>Mohali Phase 6, SAS Nagar</p>
-<p>Proprietor: Mrs. Harmeet Kaur Sandhu</p>
-</div>
-</footer>
-
-<div class="copy">
-© 2026 Sandhu Tax Advisors | All Rights Reserved
-</div>
-
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">Sandhu Tax Advisors</p>
+        <p class="footer-sub">Legal & Professional Services</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="SERVICES.HTML">Services</a>
+        <a href="ABOUT.HTML">About Us</a>
+        <a href="CONTACT.HTML">Contact Us</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact us</h4>
+        <p>📍 Mohali, Punjab (SAS Nagar)</p>
+        <a href="tel:9646612177">📞 96466 12177</a>
+        <a href="tel:8054535152">📞 80545 35152</a>
+        <a href="mailto:harnehakaur@gmail.com">✉ harnehakaur@gmail.com</a>
+      </div>
+    </div>
+    <div class="container copy">© 2026 Sandhu Tax Advisors | All Rights Reserved</div>
+  </footer>
 </body>
 </html>
