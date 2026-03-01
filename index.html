@@ -4,96 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sandhu Tax Advisors</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:#f4f8f6;
+background:#f4f7fb;
 color:#222;
 }
 
 header{
+background:#0b3d91;
+color:white;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:#ffffff;
 }
 
 .logo{
-font-weight:700;
 font-size:22px;
-color:#0b5d3b;
+font-weight:700;
 }
 
 nav a{
-margin-left:25px;
+color:white;
 text-decoration:none;
-color:#333;
+margin-left:25px;
 font-weight:500;
 }
 
-.contact-btn{
-background:#0b5d3b;
-color:white;
+.btn{
+background:#f4b400;
+color:#000;
 padding:10px 20px;
 border-radius:25px;
+text-decoration:none;
+font-weight:600;
 }
 
 .hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:80px 8%;
-}
-
-.hero-text{
-max-width:550px;
-}
-
-.hero-text h1{
-font-size:42px;
-color:#0b5d3b;
-}
-
-.hero-text p{
-margin-top:20px;
-color:#555;
-}
-
-.hero-btn{
-display:inline-block;
-margin-top:25px;
-background:#0b5d3b;
+background:linear-gradient(135deg,#0b3d91,#114fb3);
 color:white;
-padding:14px 30px;
-border-radius:30px;
-text-decoration:none;
+padding:80px 8%;
+text-align:center;
 }
 
-.stats{
-display:flex;
-justify-content:space-around;
-margin:40px 8%;
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.tagline{
+font-style:italic;
+margin-top:15px;
+}
+
+.services-preview{
+padding:70px 8%;
+text-align:center;
+}
+
+.services-preview h2{
+color:#0b3d91;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
 background:white;
 padding:25px;
 border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.stat-box{
-text-align:center;
+.card h3{
+color:#0b3d91;
+margin-bottom:10px;
 }
 
-.stat-box h2{
-color:#0b5d3b;
-margin-bottom:5px;
+.contact-strip{
+background:#f4b400;
+padding:25px;
+text-align:center;
+font-weight:600;
 }
 
 footer{
-background:#0b5d3b;
+background:#0b3d91;
 color:white;
 padding:40px 8%;
 display:flex;
@@ -108,10 +117,10 @@ display:block;
 margin-bottom:8px;
 }
 
-.copyright{
-text-align:center;
-background:#083d28;
+.copy{
+background:#072b66;
 color:white;
+text-align:center;
 padding:10px;
 }
 </style>
@@ -123,63 +132,66 @@ padding:10px;
 <div class="logo">Sandhu Tax Advisors</div>
 <nav>
 <a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="contact.html">Contact Us</a>
-<a href="tel:9646614177" class="contact-btn">Call Now</a>
+<a href="services.html">Services</a>
+<a href="tel:9646612177" class="btn">Call Now</a>
 </nav>
 </header>
 
 <section class="hero">
-<div class="hero-text">
-<h1>Trusted Experts in Taxation & Compliance</h1>
-<p>
-Providing GST, Income Tax, TDS and Corporate Compliance services
-with professional expertise and personalized guidance.
-</p>
-<a href="mailto:harnehakaur@gmail.com" class="hero-btn">Book a Consultation</a>
+<h1>SANDHU TAX ADVISORS</h1>
+<p>Legal & Professional Consultant</p>
+<p class="tagline">Har tarah ke Tax aur Compliance ka ek hi solution!</p>
+<a href="mailto:harnehakaur@gmail.com" class="btn">Book Consultation</a>
+</section>
+
+<section class="services-preview">
+<h2>Our Key Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>GST Services</h3>
+<p>GST Registration, GST Returns & Compliance Management</p>
+</div>
+
+<div class="card">
+<h3>Income Tax & TDS</h3>
+<p>Income Tax Returns, TDS Filing, Form 15CA & 15CB</p>
+</div>
+
+<div class="card">
+<h3>Company Registration</h3>
+<p>Pvt Ltd, NGO, LLP & Section 80G / 12AA Registration</p>
+</div>
+
+<div class="card">
+<h3>Accounting & Audits</h3>
+<p>Tax Audit, Stock Audit, Statutory Audit & Financial Statements</p>
+</div>
+
 </div>
 </section>
 
-<section class="stats">
-<div class="stat-box">
-<h2>9+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="stat-box">
-<h2>100+</h2>
-<p>Clients Served</p>
-</div>
-
-<div class="stat-box">
-<h2>5+</h2>
-<p>Team Members</p>
-</div>
-
-<div class="stat-box">
-<h2>100%</h2>
-<p>Compliance Support</p>
-</div>
+<section class="contact-strip">
+📞 Call / WhatsApp: 9646612177 | 8054535152  
+📧 harnehakaur@gmail.com
 </section>
 
 <footer>
 <div>
 <h3>Quick Links</h3>
 <a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="contact.html">Contact Us</a>
+<a href="services.html">Services</a>
 </div>
 
 <div>
-<h3>Contact Us</h3>
+<h3>Contact</h3>
 <p>Mohali Phase 6, SAS Nagar</p>
-<p>📞 9646614177</p>
-<p>📞 8054535152</p>
-<p>📧 harnehakaur@gmail.com</p>
+<p>Proprietor: Mrs. Harmeet Kaur Sandhu</p>
 </div>
 </footer>
 
-<div class="copyright">
+<div class="copy">
 © 2026 Sandhu Tax Advisors | All Rights Reserved
 </div>
 
