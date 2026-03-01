@@ -422,6 +422,7 @@
       .nav-wrap {
         min-height: 72px;
         align-items: center;
+        flex-wrap: wrap;
       }
 
       .logo-mark {
@@ -440,11 +441,20 @@
 
       .main-nav {
         display: none;
+        order: 3;
         width: 100%;
         padding-top: 10px;
         border-top: 1px solid #d7e5dd;
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+      }
+
+      .main-nav .btn-primary {
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: none;
+        padding: 10px 14px;
       }
 
       .main-nav.open {
@@ -484,7 +494,7 @@
     <div class="container hero-wrap">
       <div>
         <p class="eyebrow">Sandhu Tax Advisors</p>
-        <h1>Har tarah ke Tax aur Compliance ka ek hi solution!</h1>
+        <h1>Har Tarah ke Tax &amp; Compliance ka Complete Solution</h1>
         <p class="tagline">Trusted Experts in Taxation & Financial Advisory</p>
         <p class="tagline">“Aapka bharosa, hamari zimmedari — filing se compliance tak complete support.”</p>
         <p>We help individuals, traders, startups, and companies with end-to-end taxation, registration, and compliance services so you can focus on business growth.</p>

@@ -123,6 +123,51 @@
       font-size: 0.92rem;
     }
 
+    .submit-success {
+      display: none;
+      margin-top: 12px;
+      color: #0e4a33;
+      background: #ddf5e7;
+      border: 1px solid #b9dfc8;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .submit-success.show {
+      display: block;
+    }
+
+
+    .qr-card {
+      margin-top: 16px;
+      border: 1px solid #cde5d6;
+      border-radius: 14px;
+      background: #f7fcf9;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .qr-card img {
+      width: 180px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #d8e9df;
+      background: #fff;
+      padding: 8px;
+      margin: 8px auto;
+      display: block;
+    }
+
+    .qr-card a {
+      color: var(--brand-green-dark);
+      font-weight: 700;
+      word-break: break-all;
+      text-decoration: none;
+    }
+
     form { display: grid; gap: 12px; }
 
     label {
@@ -273,14 +318,22 @@
           <li><strong>Proprietor:</strong> Harmeet Kaur Sandhu</li>
         </ul>
         <p class="contact-note">For urgent filing deadlines and notices, please call directly to get priority support.</p>
+        <div class="qr-card">
+          <strong>Scan to open our website</strong>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Farnehakaur.github.io%2FSandhu_Tax_Advisors%2F" alt="QR code for Sandhu Tax Advisors website" loading="lazy">
+          <a href="https://arnehakaur.github.io/Sandhu_Tax_Advisors/" target="_blank" rel="noopener noreferrer">arnehakaur.github.io/Sandhu_Tax_Advisors</a>
+        </div>
+
       </article>
 
       <article class="card">
         <h2>Send us your query</h2>
+        <p id="submit-success" class="submit-success">✅ Thanks! Your query was submitted successfully. We have brought you back to our Contact page.</p>
         <form action="https://formsubmit.co/harnehakaur@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New consultation request - Sandhu Tax Advisors">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://arnehakaur.github.io/Sandhu_Tax_Advisors/CONTACT.HTML?submitted=true">
           <div>
             <label for="name">Your Name</label>
             <input id="name" name="name" type="text" placeholder="Enter your full name" required>
@@ -341,6 +394,13 @@
           navToggle.setAttribute('aria-expanded', 'false');
         });
       });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const successNote = document.querySelector('#submit-success');
+    if (params.get('submitted') === 'true' && successNote) {
+      successNote.classList.add('show');
+      successNote.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   </script>
 </body>
