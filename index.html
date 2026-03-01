@@ -3,193 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandhu Tax Advisors | Home</title>
+  <title>Sandhu Tax Advisors | Legal & Professional Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --brand-green: #03643f;
       --brand-green-dark: #014a2e;
+      --brand-green-soft: #e7f2eb;
       --brand-blue: #0c3f92;
-      --bg-soft: #eef7f1;
-      --bg-page: #f5faf7;
-      --text: #1a3028;
-      --muted: #4b6359;
-      --card: #ffffff;
-      --stroke: #d8e9df;
-      --shadow: 0 10px 30px rgba(3, 100, 63, 0.1);
+      --brand-yellow: #f2c84b;
+      --text-dark: #13201b;
+      --text-light: #fff;
+      --bg-light: #f1f8f4;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 30px rgba(3, 100, 63, 0.08);
       --radius: 16px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-page);
-      color: var(--text);
-      line-height: 1.55;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .container { width: min(1180px, 92%); margin: 0 auto; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
 
     .top-band {
-      background: linear-gradient(120deg, #0d4aac, #092c70);
-      color: #dbe8ff;
+      background: linear-gradient(120deg, #0f4ba8, #0c2f73);
+      color: #dce9ff;
       text-align: center;
-      font-size: 0.92rem;
       font-weight: 600;
+      font-size: 0.95rem;
       padding: 10px;
+      letter-spacing: 0.2px;
     }
 
     header {
       background: #fff;
-      border-bottom: 1px solid var(--stroke);
+      border-bottom: 1px solid #d7e5dd;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 20;
     }
 
     .nav-wrap {
-      min-height: 84px;
+      min-height: 86px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
     }
 
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
     .logo strong {
-      display: block;
       color: var(--brand-blue);
-      font-size: clamp(1rem, 1.8vw, 1.45rem);
-      letter-spacing: 0.4px;
+      font-size: clamp(1rem, 2.1vw, 1.5rem);
+      letter-spacing: 0.5px;
     }
 
     .logo span {
-      display: block;
       color: var(--brand-green);
+      font-weight: 600;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1.3px;
-      margin-top: 2px;
+      letter-spacing: 1.5px;
     }
 
-    nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
     nav a {
       text-decoration: none;
-      color: #19382c;
+      color: #123528;
       font-weight: 600;
       font-size: 0.95rem;
     }
 
     .btn {
-      text-decoration: none;
-      border-radius: 999px;
-      padding: 11px 22px;
-      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
       transition: 0.2s ease;
+      border: none;
     }
 
     .btn-primary {
       background: var(--brand-green);
       color: #fff;
-      box-shadow: 0 8px 20px rgba(3, 100, 63, 0.22);
+      padding: 12px 22px;
+      box-shadow: 0 8px 20px rgba(3, 100, 63, 0.2);
     }
 
-    .btn-primary:hover { background: var(--brand-green-dark); transform: translateY(-1px); }
+    .btn-primary:hover {
+      background: var(--brand-green-dark);
+      transform: translateY(-1px);
+    }
 
     .hero {
-      background: linear-gradient(115deg, #e9f5ee 0%, #e9f5ee 62%, #dcece2 62%, #dcece2 100%);
-      padding: 76px 0 42px;
+      padding: 72px 0 36px;
+      background:
+        linear-gradient(115deg, #eaf6ee 0%, #eaf6ee 60%, #d9ebdf 60%, #d9ebdf 100%);
     }
 
     .hero-wrap {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
       align-items: center;
-      gap: 34px;
     }
 
     .eyebrow {
       color: var(--brand-blue);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.84rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
     }
 
     .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3.3rem);
       color: var(--brand-green-dark);
-      font-size: clamp(2rem, 5vw, 3.35rem);
       line-height: 1.15;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       max-width: 650px;
     }
 
-    .tagline {
+    .hero .tagline {
       color: var(--brand-blue);
-      font-size: clamp(1rem, 2.4vw, 1.3rem);
       font-style: italic;
+      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      margin-bottom: 16px;
       font-weight: 700;
-      margin-bottom: 14px;
     }
 
-    .hero p { max-width: 620px; color: #2f4b40; margin-bottom: 24px; }
+    .hero p {
+      max-width: 620px;
+      color: #233a31;
+      font-size: 1.03rem;
+      margin-bottom: 26px;
+    }
 
     .contact-line {
-      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 20px;
+      gap: 10px 26px;
+      margin-top: 18px;
       font-weight: 600;
-      color: #1a382c;
+      color: #11392b;
     }
 
-    .contact-line a { color: var(--brand-green-dark); text-decoration: none; }
-
     .hero-card {
-      border: 1px solid var(--stroke);
       background: #fff;
       border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #d6e8dd;
     }
 
     .hero-card h3 {
-      color: var(--brand-green-dark);
+      font-size: 1.2rem;
       margin-bottom: 12px;
-      font-size: 1.22rem;
+      color: var(--brand-green-dark);
     }
 
-    .checklist { list-style: none; display: grid; gap: 10px; }
-    .checklist li { color: #294338; font-weight: 500; }
-    .checklist li::before { content: '✔'; color: #099655; margin-right: 10px; font-weight: 700; }
-
-    .owner { margin-top: 14px; color: var(--brand-blue); font-weight: 700; }
-
-    .metrics {
-      margin-top: 30px;
+    .checklist {
+      list-style: none;
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 20px;
-      align-items: stretch;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .checklist li {
+      font-weight: 500;
+      color: #223a31;
+    }
+
+    .checklist li::before {
+      content: '✔';
+      color: #0a9a56;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    .owner {
+      margin-top: 6px;
+      font-weight: 700;
+      color: var(--brand-blue);
     }
 
     .stats {
-      background: var(--card);
-      border: 1px solid var(--stroke);
+      margin-top: 32px;
+      background: #fff;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #d6e8dd;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .stat {
       text-align: center;
-      padding: 24px 12px;
+      padding: 22px 12px;
       position: relative;
     }
 
@@ -197,122 +241,34 @@
       content: '';
       position: absolute;
       right: 0;
-      top: 22%;
+      top: 20%;
       width: 1px;
-      height: 56%;
-      background: #c7ded0;
-    }
-
-    .stat .icon {
-      width: 42px;
-      height: 42px;
-      margin: 0 auto 10px;
-      border-radius: 50%;
-      background: #e6f3ec;
-      color: var(--brand-green);
-      font-size: 1.2rem;
-      display: grid;
-      place-items: center;
+      height: 60%;
+      background: #bfd8ca;
     }
 
     .stat strong {
       display: block;
       color: var(--brand-green-dark);
-      font-size: clamp(1.35rem, 2.9vw, 1.95rem);
+      font-size: clamp(1.45rem, 3.2vw, 2rem);
       line-height: 1.1;
       margin-bottom: 4px;
     }
 
-    .stat span { color: #4a6459; font-size: 0.92rem; font-weight: 600; }
-
-    .stats-visual {
-      position: relative;
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: linear-gradient(140deg, #0d7047, #03643f);
-      color: #dcf4e7;
-      padding: 20px 24px;
-      min-height: 180px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .stats-visual h3 { font-size: 1.15rem; margin-bottom: 6px; }
-    .stats-visual p { max-width: 280px; font-size: 0.9rem; color: #caf0da; }
-
-    .bars {
-      position: absolute;
-      right: 20px;
-      bottom: 18px;
-      display: flex;
-      align-items: flex-end;
-      gap: 9px;
-      height: 112px;
-    }
-
-    .bar {
-      width: 16px;
-      background: linear-gradient(180deg, #9be9bf 0%, #3cc27a 100%);
-      border-radius: 8px 8px 3px 3px;
-      animation: grow 2.2s ease-in-out infinite;
-      transform-origin: bottom;
-    }
-
-    .bar:nth-child(1) { height: 36px; animation-delay: 0s; }
-    .bar:nth-child(2) { height: 56px; animation-delay: 0.15s; }
-    .bar:nth-child(3) { height: 74px; animation-delay: 0.3s; }
-    .bar:nth-child(4) { height: 92px; animation-delay: 0.45s; }
-
-    .coin {
-      position: absolute;
-      right: 118px;
-      bottom: 122px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2px solid #f7ce5f;
-      background: radial-gradient(circle at 30% 30%, #fff5bf, #f2bb35);
-      animation: float 2.4s ease-in-out infinite;
-    }
-
-    @keyframes grow {
-      0%, 100% { transform: scaleY(0.86); }
-      50% { transform: scaleY(1.06); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-9px); }
-    }
-
-    .about-intro {
-      padding: 68px 0;
-      background: #fff;
-    }
-
-    .about-intro p {
-      max-width: 1040px;
-      margin: 0 auto;
-      text-align: center;
-      color: #094730;
-      font-weight: 700;
-      font-size: clamp(1.2rem, 2.5vw, 2.1rem);
-      line-height: 1.38;
-    }
-
     .services {
-      margin-top: 28px;
+      margin-top: 56px;
+      padding: 70px 0;
       background: var(--brand-green-dark);
-      border-top-left-radius: 62px;
-      border-top-right-radius: 62px;
-      padding: 68px 0;
+      border-top-left-radius: 64px;
+      border-top-right-radius: 64px;
     }
 
     .section-title {
-      color: #fff;
-      font-size: clamp(1.8rem, 4vw, 2.9rem);
       text-align: center;
-      margin-bottom: 32px;
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      margin-bottom: 34px;
+      font-weight: 800;
     }
 
     .service-grid {
@@ -324,91 +280,132 @@
     .service-card {
       background: #f7fbf8;
       border-radius: var(--radius);
-      padding: 22px;
-      min-height: 210px;
+      padding: 24px;
+      min-height: 205px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .service-card h3 {
-      color: #0b2f23;
-      margin-bottom: 10px;
+      color: #0c2f22;
+      font-size: 1.32rem;
       line-height: 1.2;
-      font-size: 1.24rem;
     }
 
-    .service-card p { color: #365147; font-size: 0.95rem; }
+    .service-card p {
+      color: #344940;
+      font-size: 0.95rem;
+    }
+
+    .about-intro {
+      padding: 68px 0;
+      background: #fff;
+    }
+
+    .about-intro p {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: clamp(1.25rem, 2.6vw, 2.1rem);
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #0a4732;
+    }
 
     footer {
-      background: #002f1f;
+      background: #00301f;
       color: #fff;
-      padding: 66px 0 20px;
+      padding: 70px 0 20px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr 1.1fr;
+      grid-template-columns: 1.1fr 0.9fr 1.1fr;
       gap: 40px;
+      padding-bottom: 28px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 26px;
     }
 
     .footer-brand {
-      font-size: 1.7rem;
+      font-size: 1.75rem;
       font-weight: 800;
-      color: #dbf8e8;
+      color: #ddf8e9;
       margin-bottom: 8px;
     }
 
     .footer-sub {
+      color: #9ad2b5;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #9bcfb3;
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
 
-    footer h4 { font-size: 1.9rem; margin-bottom: 10px; }
+    .footer-grid h4 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
 
-    footer a {
+    .footer-links a,
+    .footer-contact a {
       color: #fff;
       text-decoration: none;
       display: block;
-      margin: 7px 0;
+      margin: 8px 0;
     }
 
-    .footer-contact p { margin: 8px 0; }
+    .footer-contact p {
+      margin: 10px 0;
+    }
 
     .copy {
       text-align: center;
       padding-top: 18px;
-      color: #c8e8d7;
-      font-size: 0.92rem;
+      color: #c4e5d4;
       font-weight: 500;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 1080px) {
       .hero-wrap,
-      .metrics,
-      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    @media (max-width: 780px) {
-      .nav-wrap { flex-direction: column; align-items: flex-start; padding: 14px 0; }
-      nav { gap: 14px; }
+    @media (max-width: 760px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 14px;
+      }
 
       .hero-wrap,
-      .metrics,
       .service-grid,
       .footer-grid,
-      .stats { grid-template-columns: 1fr; }
+      .stats {
+        grid-template-columns: 1fr;
+      }
 
       .services {
         border-top-left-radius: 36px;
         border-top-right-radius: 36px;
       }
 
-      .stat::after { display: none; }
+      .stat::after {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -436,11 +433,10 @@
         <p class="eyebrow">Sandhu Tax Advisors</p>
         <h1>Har tarah ke Tax aur Compliance ka ek hi solution!</h1>
         <p class="tagline">Trusted Experts in Taxation & Financial Advisory</p>
-        <p>We support individuals, traders, startups, and growing companies with practical taxation and legal compliance solutions, so you can focus on running your business with confidence.</p>
-        <a href="CONTACT.HTML" class="btn btn-primary">Book a Consultation</a>
+        <p>We help individuals, traders, startups, and companies with end-to-end taxation, registration, and compliance services so you can focus on business growth.</p>
+        <a href="CONTACT.HTML" class="btn btn-primary">Book a consultation</a>
         <div class="contact-line">
-          <span>📞 <a href="tel:9646612177">96466 12177</a></span>
-          <span>📞 <a href="tel:8054535152">80545 35152</a></span>
+          <span>📞 Call / WhatsApp: <a href="tel:9646612177">96466 12177</a></span>
           <span>📧 <a href="mailto:harnehakaur@gmail.com">harnehakaur@gmail.com</a></span>
         </div>
       </div>
@@ -448,54 +444,28 @@
       <aside class="hero-card">
         <h3>Popular Services</h3>
         <ul class="checklist">
-          <li>GST Registration & Returns</li>
+          <li>GST Registration & Return Filing</li>
           <li>Income Tax Return (ITR Filing)</li>
           <li>Accounting & Balance Sheet</li>
-          <li>Company / LLP / OPC ROC Compliance</li>
+          <li>Company / LLP / OPC ROC Compliances</li>
           <li>MSME (Udyam) Registration</li>
           <li>IEC Code, FSSAI & Trade Certificates</li>
-          <li>TDS Filing & Tax Planning</li>
         </ul>
         <p class="owner">Proprietor: Harmeet Kaur Sandhu</p>
       </aside>
     </div>
 
-    <div class="container metrics">
-      <div class="stats">
-        <div class="stat">
-          <div class="icon">📅</div>
-          <strong>9+ Years</strong>
-          <span>Service Experience</span>
-        </div>
-        <div class="stat">
-          <div class="icon">👥</div>
-          <strong>500+ Clients</strong>
-          <span>Across Sectors</span>
-        </div>
-        <div class="stat">
-          <div class="icon">🧑‍💼</div>
-          <strong>5+ Members</strong>
-          <span>Expert Team</span>
-        </div>
-      </div>
-
-      <div class="stats-visual" aria-hidden="true">
-        <h3>Business Growth Focus</h3>
-        <p>Compliance done right, growth done faster — our process keeps your operations clean and future-ready.</p>
-        <span class="coin"></span>
-        <div class="bars">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
+    <div class="container stats">
+      <div class="stat"><strong>13+</strong><span>Years Services</span></div>
+      <div class="stat"><strong>5,000+</strong><span>Clients Served</span></div>
+      <div class="stat"><strong>30+</strong><span>Professional Network</span></div>
+      <div class="stat"><strong>25+</strong><span>Business Verticals</span></div>
     </div>
   </section>
 
   <section class="about-intro">
     <div class="container">
-      <p>At Sandhu Tax Advisors, we combine local business understanding with professional tax expertise to deliver dependable GST, Income Tax, company registration, and compliance services tailored to your exact needs.</p>
+      <p>At Sandhu Tax Advisors, we combine experience, practical guidance, and responsive support to deliver reliable GST, Income Tax, Company Registration, and Compliance services tailored to your needs.</p>
     </div>
   </section>
 
@@ -505,19 +475,19 @@
       <div class="service-grid">
         <article class="service-card">
           <h3>Incorporation, Registrations & Licenses</h3>
-          <p>Pvt Ltd, LLP, OPC setup, FSSAI, MSME, IEC, and startup registrations for smooth business launch.</p>
+          <p>Pvt Ltd, LLP, One Person Company, FSSAI, MSME, IEC, trade licenses and startup registrations.</p>
         </article>
         <article class="service-card">
           <h3>Goods & Services Tax (GST)</h3>
-          <p>GST registration, return filing, annual compliance, reconciliation, and support for GST notices.</p>
+          <p>GST registration, monthly/quarterly returns, annual returns, notices handling, and compliance support.</p>
         </article>
         <article class="service-card">
           <h3>Income Tax & TDS Services</h3>
-          <p>ITR filing, TDS returns, advance tax planning, and practical tax-saving guidance.</p>
+          <p>ITR filing for salaried/business clients, TDS returns, tax planning, and income tax notices assistance.</p>
         </article>
         <article class="service-card">
           <h3>Accounting, Audit & MIS</h3>
-          <p>Bookkeeping, balance sheet preparation, audit support, and reporting to track financial health.</p>
+          <p>Bookkeeping, balance sheet preparation, audit coordination, and practical business reporting for growth.</p>
         </article>
       </div>
     </div>
@@ -529,7 +499,7 @@
         <p class="footer-brand">Sandhu Tax Advisors</p>
         <p class="footer-sub">Legal & Professional Services</p>
       </div>
-      <div>
+      <div class="footer-links">
         <h4>Quick Links</h4>
         <a href="index.html">Home</a>
         <a href="SERVICES.HTML">Services</a>
