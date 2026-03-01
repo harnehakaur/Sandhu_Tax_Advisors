@@ -4,131 +4,115 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sandhu Tax Advisors</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f9f6ef;
-    color: #333;
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#f4f8f6;
+color:#222;
 }
 
-header {
-    background: #ffffff;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#ffffff;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #b48a2c;
+.logo{
+font-weight:700;
+font-size:22px;
+color:#0b5d3b;
 }
 
-.nav-buttons a {
-    text-decoration: none;
-    margin-left: 15px;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 500;
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
-.call-btn {
-    background: #b48a2c;
-    color: white;
+.contact-btn{
+background:#0b5d3b;
+color:white;
+padding:10px 20px;
+border-radius:25px;
 }
 
-.whatsapp-btn {
-    background: #25D366;
-    color: white;
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 8%;
 }
 
-.hero {
-    text-align: center;
-    padding: 80px 10%;
-    background: #ffffff;
+.hero-text{
+max-width:550px;
 }
 
-.hero h1 {
-    font-size: 42px;
-    color: #b48a2c;
+.hero-text h1{
+font-size:42px;
+color:#0b5d3b;
 }
 
-.hero p {
-    font-size: 18px;
-    margin-top: 15px;
+.hero-text p{
+margin-top:20px;
+color:#555;
 }
 
-.book-btn {
-    margin-top: 30px;
-    display: inline-block;
-    background: #b48a2c;
-    color: white;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
+.hero-btn{
+display:inline-block;
+margin-top:25px;
+background:#0b5d3b;
+color:white;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
 }
 
-.section {
-    padding: 70px 10%;
+.stats{
+display:flex;
+justify-content:space-around;
+margin:40px 8%;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.section h2 {
-    text-align: center;
-    color: #b48a2c;
-    font-size: 32px;
-    margin-bottom: 50px;
+.stat-box{
+text-align:center;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.stat-box h2{
+color:#0b5d3b;
+margin-bottom:5px;
 }
 
-.card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+footer{
+background:#0b5d3b;
+color:white;
+padding:40px 8%;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-.card h3 {
-    color: #b48a2c;
-    margin-bottom: 15px;
+footer a{
+color:white;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
 }
 
-.card ul {
-    padding-left: 18px;
-    line-height: 1.8;
-}
-
-.contact-section {
-    background: #ffffff;
-    text-align: center;
-    padding: 60px 10%;
-}
-
-.contact-section h2 {
-    color: #b48a2c;
-}
-
-.contact-section p {
-    margin: 8px 0;
-}
-
-footer {
-    background: #b48a2c;
-    color: white;
-    text-align: center;
-    padding: 20px;
+.copyright{
+text-align:center;
+background:#083d28;
+color:white;
+padding:10px;
 }
 </style>
 </head>
@@ -136,79 +120,68 @@ footer {
 <body>
 
 <header>
-    <div class="logo">Sandhu Tax Advisors</div>
-    <div class="nav-buttons">
-        <a href="tel:9646614177" class="call-btn">📞 Call Now</a>
-        <a href="https://wa.me/919646614177" class="whatsapp-btn">WhatsApp</a>
-    </div>
+<div class="logo">Sandhu Tax Advisors</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="tel:9646614177" class="contact-btn">Call Now</a>
+</nav>
 </header>
 
 <section class="hero">
-    <h1>Professional & Legal Compliance Experts</h1>
-    <p>GST | Income Tax | TDS | Company Compliance | Accounting</p>
-    <a href="mailto:harnehakaur@gmail.com" class="book-btn">
-        📧 Book a Free Consultation
-    </a>
+<div class="hero-text">
+<h1>Trusted Experts in Taxation & Compliance</h1>
+<p>
+Providing GST, Income Tax, TDS and Corporate Compliance services
+with professional expertise and personalized guidance.
+</p>
+<a href="mailto:harnehakaur@gmail.com" class="hero-btn">Book a Consultation</a>
+</div>
 </section>
 
-<section class="section">
-    <h2>Our Services</h2>
-    <div class="grid">
+<section class="stats">
+<div class="stat-box">
+<h2>9+</h2>
+<p>Years Experience</p>
+</div>
 
-        <div class="card">
-            <h3>GST Services</h3>
-            <ul>
-                <li>GST Registration</li>
-                <li>Return Filing</li>
-                <li>Tax Submission</li>
-                <li>Annual GST Returns</li>
-            </ul>
-        </div>
+<div class="stat-box">
+<h2>100+</h2>
+<p>Clients Served</p>
+</div>
 
-        <div class="card">
-            <h3>Income Tax</h3>
-            <ul>
-                <li>Income Tax Filing</li>
-                <li>Tax Planning</li>
-                <li>Form 15CA & 15CB</li>
-                <li>Notice Handling</li>
-            </ul>
-        </div>
+<div class="stat-box">
+<h2>5+</h2>
+<p>Team Members</p>
+</div>
 
-        <div class="card">
-            <h3>TDS Compliance</h3>
-            <ul>
-                <li>TDS Return Filing</li>
-                <li>TDS Registration</li>
-                <li>Quarterly Returns</li>
-                <li>Correction & Compliance</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Professional & Legal Compliances</h3>
-            <ul>
-                <li>Company / LLP Registration</li>
-                <li>ROC Annual Filing</li>
-                <li>MSME (Udyam) Registration</li>
-                <li>FSSAI & IEC License</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<section class="contact-section">
-    <h2>Contact Us</h2>
-    <p>📞 9646614177</p>
-    <p>📞 8054535152</p>
-    <p>📧 harnehakaur@gmail.com</p>
-    <p>Accurate • Affordable • Timely Service</p>
+<div class="stat-box">
+<h2>100%</h2>
+<p>Compliance Support</p>
+</div>
 </section>
 
 <footer>
-    © 2026 Sandhu Tax Advisors | All Rights Reserved
+<div>
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+</div>
+
+<div>
+<h3>Contact Us</h3>
+<p>Mohali Phase 6, SAS Nagar</p>
+<p>📞 9646614177</p>
+<p>📞 8054535152</p>
+<p>📧 harnehakaur@gmail.com</p>
+</div>
 </footer>
+
+<div class="copyright">
+© 2026 Sandhu Tax Advisors | All Rights Reserved
+</div>
 
 </body>
 </html>
